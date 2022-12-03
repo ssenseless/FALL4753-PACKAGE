@@ -1,0 +1,18 @@
+Package: FALL224753youn0052
+Type: Package
+Title: MATH 4753 Functions
+Version: 0.1.0
+Author: Carson Young
+Maintainer: Carson Young <major.add.9@ou.edu>
+Description: Contains a list of MATH 4753 functions.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+  rmarkdown,
+  knitr,
+  graphics,
+  stats,
+  grDevices
+RoxygenNote: 7.2.1
+VignetteBuilder: knitr

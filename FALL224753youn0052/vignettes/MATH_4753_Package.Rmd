@@ -1,0 +1,80 @@
+---
+title: "Applied Statistical Methods Package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Applied Statistical Methods Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(FALL224753youn0052)
+```
+
+# Introduction
+
+## myboot2.R and mybootadjusted.R
+
+myboot2.R is a simple bootstrapping function for samples with statistical alpha. Includes several functionalities like "mean", "median", and so on, but can also take in user-defined functions. 
+
+mybootadjusted.R is identical but returns a list of important variables as opposed to a plot.
+
+
+Use cases:
+
+```{r}
+set.seed(39)
+
+mean_over_median = function(x) {
+  mean_over_median = mean(x) / median(x)
+}
+sam = rnorm(25, mean = 25, sd = 10)
+
+myboot2(x = sam, fun = mean_over_median)
+
+
+sam = c(1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4)
+
+data = mybootadjusted(x = sam, fun = "median")
+factored = table(factor(data[4]$xstat, levels = c(1:4)))
+
+barplot(factored, xlab = "xstat", col = 3)
+```
+
+
+## myncurve.R
+
+Given $\mu$, $a$, and $\sigma$, plots a dnorm function as well as the probability of $P(Y\leq a)$.
+
+Use case:
+
+```{r}
+myncurve(mu = 10, sigma = 5, a = 6)
+```
+
+## ntickets.R
+
+Solves the overbooking problem by calculating the optimal number of tickets to be sold, both discretely, and with a normal approximation to the binomial distribution.
+
+Use case:
+
+```{r}
+ntickets(N = 400, gamma = 0.02, p = 0.95)
+```
+
+## hypergeom.R
+
+Computes the an approximation of the probability mass function of the hyper geometric distribution.
+
+Use case:
+
+```{r}
+hypergeom(iterations = 10, num_trials = 5, total_y = 12, total_obj_num = 20)
+```
