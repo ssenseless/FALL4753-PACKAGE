@@ -8,6 +8,7 @@
 #' @param p probability someone will show up for the flight.
 #'
 #' @importFrom stats pbinom pnorm
+#' @importFrom graphics par
 #'
 #' @example
 #' \dontrun{ntickets(N = 400, gamma = 0.02, p = 0.95)}

@@ -12,6 +12,7 @@
 #'
 #' @export
 myncurve = function(mu, sigma, a){
+  x = NULL
   curve(dnorm(x = x, mu, sigma), xlim = c(mu - 3 * sigma, mu + 3 * sigma),
         ylab = "dnorm density", main = paste("dnorm(x, ", mu, ", ", sigma, ")", sep = ""))
 
